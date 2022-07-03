@@ -67,19 +67,19 @@ const listOfProducts = [
   },
 ];
 
-const getUniqueProductCount = () => {
+const getUniqueProductCount = (listOfProducts) => {
   const obj = {};
   listOfProducts.forEach((prod) => {
     if (obj[prod.productName] == undefined) {
-      obj[prod.productName] = prod.quantity;
+      obj[prod.productName] = 1;
     } else {
-      obj[prod.productName] += prod.quantity;
+      obj[prod.productName] += 1;
     }
   });
   return obj;
 };
 
-const getUniquePrducts = () => {
+const getUniquePrducts = (listOfProducts) => {
   let result = listOfProducts.reduce((acc, curr) => {
     let idx = acc.findIndex((item) => item.productName === curr.productName);
 
@@ -93,5 +93,5 @@ const getUniquePrducts = () => {
   return result;
 };
 
-console.log("UniqueProductCount:", getUniqueProductCount());
-console.log("UniquePrducts:", getUniquePrducts());
+console.log("UniqueProductCount:", getUniqueProductCount(listOfProducts));
+console.log("UniquePrducts:", getUniquePrducts(listOfProducts));
